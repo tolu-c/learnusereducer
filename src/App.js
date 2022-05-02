@@ -50,7 +50,7 @@ function App() {
     setName('')
   }
 
-  console.log(todoState);
+  // console.log(todoState);
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>

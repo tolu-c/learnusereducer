@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Getting Started With useReducer Hook in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The useReducer Hook is similar to the useState Hook but is used for more complex state management.
 
-## Available Scripts
+## Syntax
 
-In the project directory, you can run:
+```javascript
+import { useReducer } from 'react'
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+const initialState = {
+  count: 0;
+} // or []
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+const reducer = (state, action) => {
+  if (action.type === <dispatchStateAction.type>) {
+    // do something with the state
+  }
 
-### `npm test`
+  // you can have as much actions as required
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  return state;
+}
 
-### `npm run build`
+// where the state refers the original object in the useReducer, i.e initialState
+// initialState.count === state.count >> true
+// the action is passed into the `dispatchCountAction`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+// main syntax:
+const [updatedState, dispatchStateAction] = useReducer(reducer, initialState)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+// where <reducer> is a function that contains your custom state logic 
+// and <initialState> can simply be any value but generally an object
+// updatedState is the updated version of initialState and is used in the jsx of our code
+// example: {updatedState.count} gives the accurate count not {initialState.count}
+// dispatchCountAction differentiates the type of action that should be performed
+// by the reducer function
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Link to live action => [learnuseredcer.vercel.app](https://learnusereducer.vercel.app/)
